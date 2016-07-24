@@ -289,8 +289,8 @@ class gdutLogin:
                 self.gpa.append(u'绩点'.encode('gb2312'))
                 continue
             if(self.grades[i].isdigit()):
-                temp = string.atof(self.grades[i])-50.0 if string.atof(self.grades[i])>=60 else 0.0
-                sum += string.atof(self.credit[i])*string.atof(temp/10.0)
+                temp = (string.atof(self.grades[i])-50.0)/10.0 if string.atof(self.grades[i])>=60 else 0.0
+                sum += string.atof(self.credit[i])*string.atof(temp)
             else: 
                 temp = operator.get(self.grades[i])()
                 sum+=  string.atof(self.credit[i])*temp
